@@ -1,0 +1,50 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-o",
+      "output/main",
+      "src/main.cpp"
+    ],
+    "directory": "/home/hendrik/Coding/Graphics",
+    "file": "/home/hendrik/Coding/Graphics/src/main.cpp",
+    "output": "/home/hendrik/Coding/Graphics/output/main"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-o",
+      "output/main",
+      "src/glad/glad.c"
+    ],
+    "directory": "/home/hendrik/Coding/Graphics",
+    "file": "/home/hendrik/Coding/Graphics/src/glad/glad.c",
+    "output": "/home/hendrik/Coding/Graphics/output/main"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-o",
+      "output/main",
+      "src/render/stb_image.cpp"
+    ],
+    "directory": "/home/hendrik/Coding/Graphics",
+    "file": "/home/hendrik/Coding/Graphics/src/render/stb_image.cpp",
+    "output": "/home/hendrik/Coding/Graphics/output/main"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-o",
+      "output/main",
+      "src/Window/window.cpp"
+    ],
+    "directory": "/home/hendrik/Coding/Graphics",
+    "file": "/home/hendrik/Coding/Graphics/src/Window/window.cpp",
+    "output": "/home/hendrik/Coding/Graphics/output/main"
+  }
+]
