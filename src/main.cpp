@@ -17,7 +17,7 @@ void processInput(GLFWwindow *window);
 float deltaTime = 0.0f; //Time between frames
 float lastFrame = 0.0f; //Time of last frame
 
-Camera camera(glm::vec3(0.0f, 0.0f, 5.0f));
+Camera camera(glm::vec3(0.0f, -5.0f, 5.0f));
 float lastX, lastY;
 bool firstMouse = true;
 
@@ -26,36 +26,76 @@ int main() {
     //BOOK PG 96
     int screen_width = 800;
     int screen_height = 600;
-    const char Title[] = "Mathicians"; 
+    const char Title[] = "Osmium Engine Test Run"; 
     GLFWwindow* main_window = create_new_window(Title,screen_width,screen_height);
-    
+    glfwGetWindowSize(main_window, &screen_width, &screen_height);
     glfwMakeContextCurrent(main_window);
     glfwSetCursorPosCallback(main_window, mouse_callback);
     glfwSetScrollCallback(main_window, scroll_callback);
     
     glEnable(GL_DEPTH_TEST);
     glfwSetInputMode(main_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-   
-    GLfloat vertices[] = {
-        -0.5f, 0.5f, 0.5f,   1.0f, 0.0f,
-        -0.5f,-0.5f, 0.5f,   0.0f, 0.0f,
-         0.5f, 0.5f, 0.5f,   1.0f, 0.0f,
-         0.5f,-0.5f, 0.5f,   0.0f, 0.0f,
-        -0.5f, 0.5f,-0.5f,   1.0f, 1.0f,
-        -0.5f,-0.5f,-0.5f,   0.0f, 1.0f,
-         0.5f, 0.5f,-0.5f,   1.0f, 1.0f,
-         0.5f,-0.5f,-0.5f,   0.0f, 1.0f   
-    };
+       
+    Vertex vertices[] = {
+        Vertex(-0.5f, -0.5f, -0.5f,  0.0f, 0.0f),
+        Vertex(0.5f, -0.5f, -0.5f,  1.0f, 0.0f),
+        Vertex( 0.5f,  0.5f, -0.5f,  1.0f, 1.0f),
+        Vertex(0.5f,  0.5f, -0.5f,  1.0f, 1.0f),
+        Vertex(-0.5f,  0.5f, -0.5f,  0.0f, 1.0f),
+        Vertex(-0.5f, -0.5f, -0.5f,  0.0f, 0.0f),
 
-    unsigned int indices[] = {
-        0, 2, 3, 0, 3, 1,
-        2, 6, 7, 2, 7, 3,
-        6, 4, 5, 6, 5, 7,
-        4, 0, 1, 4, 1, 5,
-        0, 4, 6, 0, 6, 2,
-        1, 5, 7, 1, 7, 3
-    };    
-   
+        Vertex(-0.5f, -0.5f,  0.5f,  0.0f, 0.0f),
+        Vertex(0.5f, -0.5f,  0.5f,  1.0f, 0.0f),
+        Vertex(0.5f,  0.5f,  0.5f,  1.0f, 1.0f),
+        Vertex(0.5f,  0.5f,  0.5f,  1.0f, 1.0f),
+        Vertex(-0.5f,  0.5f,  0.5f,  0.0f, 1.0f),
+        Vertex(-0.5f, -0.5f,  0.5f,  0.0f, 0.0f),
+
+        Vertex(-0.5f,  0.5f,  0.5f,  1.0f, 0.0f),
+        Vertex(-0.5f,  0.5f, -0.5f,  1.0f, 1.0f),
+        Vertex(-0.5f, -0.5f, -0.5f,  0.0f, 1.0f),
+        Vertex(-0.5f, -0.5f, -0.5f,  0.0f, 1.0f),
+        Vertex(-0.5f, -0.5f,  0.5f,  0.0f, 0.0f),
+        Vertex(-0.5f,  0.5f,  0.5f,  1.0f, 0.0f),
+
+        Vertex(0.5f,  0.5f,  0.5f,  1.0f, 0.0f),
+        Vertex(0.5f,  0.5f, -0.5f,  1.0f, 1.0f),
+        Vertex(0.5f, -0.5f, -0.5f,  0.0f, 1.0f),
+        Vertex(0.5f, -0.5f, -0.5f,  0.0f, 1.0f),
+        Vertex(0.5f, -0.5f,  0.5f,  0.0f, 0.0f),
+        Vertex(0.5f,  0.5f,  0.5f,  1.0f, 0.0f),
+
+        Vertex(-0.5f, -0.5f, -0.5f,  0.0f, 1.0f),
+        Vertex(0.5f, -0.5f, -0.5f,  1.0f, 1.0f),
+        Vertex(0.5f, -0.5f,  0.5f,  1.0f, 0.0f),
+        Vertex(0.5f, -0.5f,  0.5f,  1.0f, 0.0f),
+        Vertex(-0.5f, -0.5f,  0.5f,  0.0f, 0.0f),
+        Vertex(-0.5f, -0.5f, -0.5f,  0.0f, 1.0f),
+
+        Vertex( -0.5f,  0.5f, -0.5f,  0.0f, 1.0f),
+        Vertex(0.5f,  0.5f, -0.5f,  1.0f, 1.0f),
+        Vertex(0.5f,  0.5f,  0.5f,  1.0f, 0.0f),
+        Vertex(0.5f,  0.5f,  0.5f,  1.0f, 0.0f),
+        Vertex( -0.5f,  0.5f,  0.5f,  0.0f, 0.0f),
+        Vertex(-0.5f,  0.5f, -0.5f,  0.0f, 1.0f)
+    };
+    VertexBuffers vertexbuffers(vertices, 
+                                sizeof(vertices)/(sizeof(float)*5),
+                                nullptr,
+                                0); 
+    Texture tex0(TEXTURE_DIR("paint_abstract.jpg"));
+    Texture tex1(TEXTURE_DIR("lava_solidified.jpg"));
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex0.texture);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, tex1.texture);
+
+    Shader basicShader(SHADER_DIR("vert.vert"),SHADER_DIR("frag.frag"));   
+    basicShader.use();
+    basicShader.setInt("texture0",0);
+    basicShader.setInt("texture1",1);
+
+
 
     glm::vec3 cubePositions[] = {
         glm::vec3( 0.0f, 0.0f, -1.0f),
@@ -76,31 +116,13 @@ int main() {
         glm::vec3( 3.5f, 5.2f, -10.5f),
     }; 
 
-    VertexBuffers vertexbuffers(vertices, 
-                                sizeof(vertices)/sizeof(vertices[0]),
-                                indices,
-                                sizeof(indices)/sizeof(indices[0])); 
-
-    Texture tex0(TEXTURE_DIR("paint_abstract.jpg"));
-    Texture tex1(TEXTURE_DIR("lava_solidified.jpg"));
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, tex0.texture);
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, tex1.texture);
-
-    Shader basicShader(SHADER_DIR("vert.vert"),SHADER_DIR("frag.frag"));   
-    basicShader.use();
-    basicShader.setInt("texture0",0);
-    basicShader.setInt("texture1",1);
-
     while(!glfwWindowShouldClose(main_window)){
         // input
         float currentFrame = static_cast<float>(glfwGetTime());
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
-        
-        
-        printf("FPS: %f\n",1/deltaTime);
+         
+        //printf("FPS: %f\n",1/deltaTime);
         
         //input
         processInput(main_window);
@@ -108,16 +130,13 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
        
         glfwGetWindowSize(main_window, &screen_width, &screen_height);
+
         glm::mat4 projection = glm::perspective(glm::radians(camera.fov), 
                                       (float)screen_width/(float)screen_height,
                                       0.1f,  100.0f);
-        int projectionLoc = glGetUniformLocation(basicShader.ID, "projection");
-        glUniformMatrix4fv(projectionLoc, 1 , GL_FALSE, glm::value_ptr(projection));
+        basicShader.setMat4("projection",projection);
 
-        glm::mat4 view = camera.GetViewMatrix();
-        int viewLoc = glGetUniformLocation(basicShader.ID, "view");
-        glUniformMatrix4fv(viewLoc, 1 , GL_FALSE, glm::value_ptr(view));
-
+        basicShader.setMat4("view", camera.GetViewMatrix());
 
         for(unsigned int i = 0; i < 16; i++) {
             glm::mat4 model = glm::mat4(1.0f);
@@ -129,8 +148,7 @@ int main() {
             model = glm::rotate(model, glm::radians(angle),
                                 glm::vec3(0.5f*t_x, 0.3f, 0.5f*t_z));
         
-            int modelLoc = glGetUniformLocation(basicShader.ID, "model");
-            glUniformMatrix4fv(modelLoc, 1 , GL_FALSE, glm::value_ptr(model));
+            basicShader.setMat4("model", model);
              
             vertexbuffers.draw(basicShader.ID);
         }

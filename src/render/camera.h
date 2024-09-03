@@ -14,7 +14,7 @@ enum Camera_Movement {
     DOWN,
 };
 
-const float default_yaw = 0.0f;
+const float default_yaw = -90.0f;
 const float default_pitch = 0.0f;
 const float default_movementSpeed = 2.5f;
 const float default_sensitivity = 0.1f;
