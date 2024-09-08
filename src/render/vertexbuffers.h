@@ -2,6 +2,7 @@
 #define VERTEXBUFFERS_H
 
 #include "../glad/glad.h"
+#include "../glm/glm.hpp"
 struct Vertex {
     float x,y,z,u,v;
     Vertex(float _x , float _y, float _z, float _u, float _v) {

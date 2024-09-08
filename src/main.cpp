@@ -6,7 +6,6 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
-
 #define SHADER_DIR(a) "shaders/" a
 #define TEXTURE_DIR(a) "assets/Textures/" a 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -20,6 +19,8 @@ float lastFrame = 0.0f; //Time of last frame
 Camera camera(glm::vec3(0.0f, -5.0f, 5.0f));
 float lastX, lastY;
 bool firstMouse = true;
+
+
 
 int main() {
     std::ios_base::sync_with_stdio(false);
