@@ -1,2 +1,3 @@
-# Osmium-Game-Engine
-Free Open Source hobby Game Engine, With a do it from scratch approach
+# Demo Renderer
+OpenGl Demo Renderer \
+A proof of concept 3D graphics Renderer
