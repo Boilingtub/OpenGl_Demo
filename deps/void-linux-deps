@@ -1,0 +1,4 @@
+#Vulkan DEPS
+sudo xbps-install Vulkan-Tools vulkan-loader vulkan-loader-devel Vulkan-ValidationLayers SPIRV-Tools
+#GLFW DEPS
+sudo xbps-install glfw glfw-devel glfw-wayland

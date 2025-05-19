@@ -1,0 +1,41 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-g",
+      "-o",
+      "output/main",
+      "src/main.cpp"
+    ],
+    "directory": "/home/hendrik/Coding/OpenGL_Projects/image_viewer",
+    "file": "/home/hendrik/Coding/OpenGL_Projects/image_viewer/src/main.cpp",
+    "output": "/home/hendrik/Coding/OpenGL_Projects/image_viewer/output/main"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-g",
+      "-o",
+      "output/main",
+      "src/glad/glad.c"
+    ],
+    "directory": "/home/hendrik/Coding/OpenGL_Projects/image_viewer",
+    "file": "/home/hendrik/Coding/OpenGL_Projects/image_viewer/src/glad/glad.c",
+    "output": "/home/hendrik/Coding/OpenGL_Projects/image_viewer/output/main"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-g",
+      "-o",
+      "output/main",
+      "src/render/stb_image.cpp"
+    ],
+    "directory": "/home/hendrik/Coding/OpenGL_Projects/image_viewer",
+    "file": "/home/hendrik/Coding/OpenGL_Projects/image_viewer/src/render/stb_image.cpp",
+    "output": "/home/hendrik/Coding/OpenGL_Projects/image_viewer/output/main"
+  }
+]
